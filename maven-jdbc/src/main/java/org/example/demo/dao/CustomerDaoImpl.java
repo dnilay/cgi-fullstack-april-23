@@ -67,4 +67,26 @@ public class CustomerDaoImpl implements CustomerDao {
 
 	}
 
+	@Override
+	public void updateCustomer(int customerId,String firstName,String lastName,String email) throws SQLException {
+		// TODO Auto-generated method stub
+		
+		PreparedStatement preparedStatement=connection.prepareStatement("update customer set first_name=?,last_name=?,email=? where customer_id=?");
+		preparedStatement.setString(1, firstName);
+		preparedStatement.setString(2, lastName);
+		preparedStatement.setString(3, email);
+		preparedStatement.setInt(4, customerId);
+		int count=preparedStatement.executeUpdate();
+		
+		if(count>0)
+		{
+			System.out.println("customer updation sucessfull...");
+		}
+		else
+		{
+			System.out.println("customer record not found..!");
+		}
+		
+	}
+
 }

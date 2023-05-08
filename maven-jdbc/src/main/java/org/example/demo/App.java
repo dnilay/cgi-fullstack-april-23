@@ -25,6 +25,7 @@ public class App {
 			System.out.println("1. Create New customer.");
 			System.out.println("2. Display all Available customer.");
 			System.out.println("3. Delete A Customer By Cudtomer ID.");
+			System.out.println("4. Update A Customer By Cudtomer ID.");
 			System.out.println("0. Exit.");
 			System.out.print("Enter Your Choice: ");
 			choice = scanner.nextInt();
@@ -64,6 +65,18 @@ public class App {
 				int id = scanner.nextInt();
 				customerDao.deleteCustomerById(id);
 				break;
+			case 4:
+				System.out.print("Enter Customer id: ");
+				id=scanner.nextInt();
+				System.out.print("Enter First Name: ");
+				fName = scanner.next();
+				System.out.print("Enter Last Name: ");
+				lName = scanner.next();
+				System.out.print("Enter Email: ");
+				email = scanner.next();
+				customerDao.updateCustomer(id, fName, lName, email);
+				break;
+				
 			case 0:
 				System.out.println("bye...");
 				System.exit(1);
