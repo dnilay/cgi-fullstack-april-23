@@ -14,4 +14,6 @@ public interface CustomerDao {
 	public void deleteCustomerById(int customerId) throws SQLException;
 	
 	public void updateCustomer(int customerId,String firstName,String lastName,String email) throws SQLException;
+	
+	public void findCustomerByid(int customerId) throws SQLException;
 }

@@ -26,6 +26,7 @@ public class App {
 			System.out.println("2. Display all Available customer.");
 			System.out.println("3. Delete A Customer By Cudtomer ID.");
 			System.out.println("4. Update A Customer By Cudtomer ID.");
+			System.out.println("5. Find A Customer By Cudtomer ID.");
 			System.out.println("0. Exit.");
 			System.out.print("Enter Your Choice: ");
 			choice = scanner.nextInt();
@@ -75,6 +76,11 @@ public class App {
 				System.out.print("Enter Email: ");
 				email = scanner.next();
 				customerDao.updateCustomer(id, fName, lName, email);
+				break;
+			case 5:
+				System.out.print("enter id: ");
+				id=scanner.nextInt();
+				customerDao.findCustomerByid(id);
 				break;
 				
 			case 0:

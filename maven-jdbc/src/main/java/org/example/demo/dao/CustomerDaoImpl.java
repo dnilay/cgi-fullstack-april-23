@@ -89,4 +89,27 @@ public class CustomerDaoImpl implements CustomerDao {
 		
 	}
 
+	@Override
+	public void findCustomerByid(int customerId) throws SQLException {
+		// TODO Auto-generated method stub
+		
+		PreparedStatement preparedStatement=connection.prepareStatement("select * from customer where customer_id=?");
+		preparedStatement.setInt(1, customerId);
+		ResultSet resultSet=preparedStatement.executeQuery();
+		
+		if(resultSet.next())
+		{
+			System.out.println("found.");
+			System.out.println(resultSet.getInt(1)+" "+resultSet.getString(2)+" "+resultSet.getString(3)+ " "+resultSet.getString(4));
+		}
+		else
+		{
+			System.out.println("not found.");
+		}
+			
+		
+		
+		
+	}
+
 }
