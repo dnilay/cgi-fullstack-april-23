@@ -10,4 +10,6 @@ public interface CustomerDao {
 	public Customer createCustomer(Customer customer) throws SQLException;
 
 	public List<Customer> getAllCustomers() throws SQLException;
+	
+	public void deleteCustomerById(int customerId) throws SQLException;
 }
