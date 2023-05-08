@@ -2,7 +2,11 @@ package org.example.demo.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.example.demo.factory.MySqlConnectionFactory;
 import org.example.demo.model.Customer;
@@ -30,6 +34,21 @@ public class CustomerDaoImpl implements CustomerDao {
 		preparedStatement.setString(4, customer.getEmail());
 		preparedStatement.executeUpdate();
 		return customer;
+	}
+
+	@Override
+	public List<Customer> getAllCustomers() throws SQLException {
+		// TODO Auto-generated method stub
+		List<Customer> list=new ArrayList<Customer>();
+		
+		Statement statement=connection.createStatement();
+		ResultSet resultSet=statement.executeQuery("select * from customer");
+		
+		while(resultSet.next())
+		{
+			list.add(new Customer(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4)));
+		}
+		return list;
 	}
 
 }

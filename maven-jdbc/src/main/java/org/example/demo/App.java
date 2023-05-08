@@ -1,6 +1,7 @@
 package org.example.demo;
 
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -18,19 +19,29 @@ public class App
     public static void main( String[] args )
     {
     	CustomerDao customerDao=new CustomerDaoImpl();
-        System.out.print("Enter First Name: ");
-        String fName=scanner.next();
-        System.out.print("Enter Last Name: ");
-        String lName=scanner.next();
-        System.out.print("Enter Email: ");
-        String email=scanner.next();
-        try {
-			Customer customer=customerDao.createCustomer(new Customer(new Random().nextInt(),fName,lName,email));
-			
-			System.out.println("Customer Created: "+customer);
+		/*
+		 * System.out.print("Enter First Name: "); String fName=scanner.next();
+		 * System.out.print("Enter Last Name: "); String lName=scanner.next();
+		 * System.out.print("Enter Email: "); String email=scanner.next(); try {
+		 * Customer customer=customerDao.createCustomer(new Customer(new
+		 * Random().nextInt(),fName,lName,email));
+		 * 
+		 * System.out.println("Customer Created: "+customer); } catch (SQLException e) {
+		 * // TODO Auto-generated catch block e.printStackTrace(); }
+		 */
+    	
+    	
+    	try {
+			List<Customer> list=customerDao.getAllCustomers();
+			for(Customer customer:list)
+			{
+				System.out.println(customer);
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+    	
+    	
     }
 }
