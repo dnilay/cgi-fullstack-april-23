@@ -3,14 +3,6 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-<bean name="person" class="org.example.demo.Person">
-<property name="personId" value="101"/>
-<property name="personName" value="Joh  Doe"/>
-</bean>
-<bean name="e" class="org.example.demo.Employee">
-<property name="employeeId" value="100"/>
-<property name="firstName" value="marry"/>
-<property name="lastName" value="public"/>
-<property name="email" value="marry@email.com"/>
-</bean>
+
+<bean name="coach" class="org.example.demo.SwimmingCoach"></bean>
 </beans>
