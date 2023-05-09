@@ -2,7 +2,12 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-
+<bean name="e" class="org.example.demo.Employee">
+<constructor-arg name="employeeId" value="100"/>
+<constructor-arg name="firstName" value="John"/>
+<constructor-arg name="lastName" value="Doe"/>
+<constructor-arg name="email" value="john@email.com"/>
+</bean>
 
 <bean name="coach" class="org.example.demo.SwimmingCoach"></bean>
 </beans>

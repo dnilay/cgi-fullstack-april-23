@@ -15,9 +15,11 @@ public class App
       ApplicationContext applicationContext=null;
       
       applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml");
-      Coach theCoach=applicationContext.getBean("coach",Coach.class);
+    //  Coach theCoach=applicationContext.getBean("coach",Coach.class);
       
-      System.out.println(theCoach.getDailyWorkout());
+      Employee employee=applicationContext.getBean("e",Employee.class);
+      //System.out.println(theCoach.getDailyWorkout());
+      System.out.println(employee);
       
     }
 }
