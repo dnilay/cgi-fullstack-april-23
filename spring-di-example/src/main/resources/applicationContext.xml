@@ -6,7 +6,7 @@
 <bean id="fortuneService" class="org.example.spring_di_example.HappyFortuneService">
 </bean>
 <bean id="coach" class="org.example.spring_di_example.CricketCoach">
-<constructor-arg name="fortuneService" ref="fortuneService"/>
+<property name="fortuneService" ref="fortuneService"/>
 </bean>
 
 <bean id="address" class="org.example.spring_di_example.Address">
@@ -16,7 +16,7 @@
 </bean>
 
 <bean id="person" class="org.example.spring_di_example.Person">
-<constructor-arg name="address" ref="address"/>
+<property name="address" ref="address"/>
 <property name="personId" value="p1"/>
 <property name="personName" value="John"/>
 </bean>

@@ -5,10 +5,7 @@ public class Person {
 	private String personId;
 	private String personName;
 	private Address address;
-	public Person(Address address) {
-		super();
-		this.address = address;
-	}
+	
 	public String getPersonId() {
 		return personId;
 	}
@@ -20,6 +17,14 @@ public class Person {
 	}
 	public void setPersonName(String personName) {
 		this.personName = personName;
+	}
+	
+	
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 	@Override
 	public String toString() {
