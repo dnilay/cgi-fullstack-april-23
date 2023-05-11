@@ -8,9 +8,10 @@
 <bean id="fortuneService" class="org.example.demo.HappyFortuneService">
 
 </bean>
-<bean id="theCoach" class="org.example.demo.CricketCoach">
+<bean id="theCoach" class="org.example.demo.CricketCoach" init-method="initCricketCoach" destroy-method="customDestroyMethod" scope="prototype">
 <property name="fortuneService" ref="fortuneService"/>
 <property name="email" value="${foo.email}"/>
 <property name="team" value="${foo.team}"/>
+
 </bean>
 </beans>

@@ -7,7 +7,10 @@ public class CricketCoach implements Coach {
 	private String email;
 	private String team;
 	
-
+public void initCricketCoach()
+{
+	System.out.println("cricket coach init called");
+}
 	
 
 	public String getEmail() {
@@ -46,4 +49,9 @@ public class CricketCoach implements Coach {
 		return fortuneService.getDailyFortune();
 	}
 
+	
+	public void customDestroyMethod()
+	{
+		System.out.println("bean detroyed");
+	}
 }
