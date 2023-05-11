@@ -9,4 +9,15 @@
 <constructor-arg name="fortuneService" ref="fortuneService"/>
 </bean>
 
+<bean id="address" class="org.example.spring_di_example.Address">
+
+<constructor-arg name="addressLine1" value="Hyderabad"/>
+<constructor-arg name="addressLine2" value="India"/>
+</bean>
+
+<bean id="person" class="org.example.spring_di_example.Person">
+<constructor-arg name="address" ref="address"/>
+<property name="personId" value="p1"/>
+<property name="personName" value="John"/>
+</bean>
 </beans>

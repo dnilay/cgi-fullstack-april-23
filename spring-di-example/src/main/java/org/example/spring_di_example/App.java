@@ -13,8 +13,15 @@ public class App
     {
         ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
         
-        Coach theCoach=context.getBean("coach",Coach.class);
+		/*
+		 * Coach theCoach=context.getBean("coach",Coach.class);
+		 * 
+		 * System.out.println(theCoach.getDailyWorkout()+" ===> "+theCoach.
+		 * getDailyFortune());
+		 */
         
-        System.out.println(theCoach.getDailyWorkout()+" ===> "+theCoach.getDailyFortune());
+        Person person=context.getBean("person",Person.class);
+        
+        System.out.println(person);
     }
 }
