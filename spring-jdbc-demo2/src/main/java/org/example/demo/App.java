@@ -5,6 +5,7 @@ import java.util.List;
 import org.example.demo.config.SpringConfig;
 import org.example.demo.dao.CustomerDao;
 import org.example.demo.model.Customer;
+import org.example.demo.service.CustomerService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -20,9 +21,9 @@ public class App
         	
         	ApplicationContext context=new AnnotationConfigApplicationContext(SpringConfig.class);
 			
-        	CustomerDao customerDao=context.getBean("customerDao",CustomerDao.class);
+        	CustomerService customerService =context.getBean("customerService",CustomerService.class);
         	
-        	List<Customer> list=customerDao.getAllCustomers();
+        	List<Customer> list=customerService.getAllCustomers();
         	for(Customer c:list)
         	{
         	  System.out.println(c);	
@@ -30,6 +31,7 @@ public class App
         	
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}
     }
 }
