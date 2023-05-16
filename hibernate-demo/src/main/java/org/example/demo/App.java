@@ -1,5 +1,7 @@
 package org.example.demo;
 
+import javax.persistence.Query;
+
 import org.example.demo.model.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -16,8 +18,16 @@ public class App
         SessionFactory factory=new Configuration().configure().addAnnotatedClass(Student.class).buildSessionFactory();
         Session session=factory.openSession();
         session.getTransaction().begin();
-        session.save(new Student(100, "John", "Doe", "john@email.com"));
-        session.getTransaction().commit();
+        session.save(new Student(200, "Marry", "Public", "marry@email.com"));
         System.out.println("student created...");
+        Query query=session.createQuery("FROM Student");
+        java.util.List<Student> students= query.getResultList();
+        for(Student s:students)
+        {
+        	System.out.println(s);
+        }
+        
+        session.getTransaction().commit();
+       
     }
 }
