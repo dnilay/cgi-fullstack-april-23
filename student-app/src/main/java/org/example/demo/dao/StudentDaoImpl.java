@@ -59,6 +59,32 @@ public class StudentDaoImpl implements StudentDao{
 		session.getTransaction().commit();
 		
 	}
+
+	@Override
+	public Student updateStudent(int studentId, Student student) {
+		// TODO Auto-generated method stub
+		session.getTransaction().begin();
+		Student s=session.get(Student.class, studentId);
+		
+		if(s==null)
+		{
+			System.out.println("no such id found: "+studentId);
+		}
+		else
+		{
+			
+			s.setFirstName(student.getFirstName());
+			s.setLastName(student.getLastName());
+			s.setEmail(student.getEmail());
+			session.merge(s);
+			
+			
+			
+			System.out.println("one item updated...");
+		}
+		session.getTransaction().commit();
+		return s;
+	}
 	
 
 }

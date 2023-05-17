@@ -19,6 +19,16 @@ public class Student {
 	public Student() {
 		super();
 	}
+	
+	
+	public Student(String firstName, String lastName, String email) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+	}
+
+
 	public Student(int studentId, String firstName, String lastName, String email) {
 		super();
 		this.studentId = studentId;

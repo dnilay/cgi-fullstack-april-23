@@ -1,5 +1,6 @@
 package org.example.demo;
 
+import org.example.demo.model.Student;
 import org.example.demo.service.StudentService;
 import org.example.demo.service.StudentServiceImpl;
 
@@ -16,7 +17,9 @@ public class App
     	StudentService studentService=new StudentServiceImpl();
     	
     	//studentService.deleteStudentById(100);
-    	studentService.deleteAllStudents();
+    	//studentService.deleteAllStudents();
+    	Student s=studentService.updateStudent(100, new Student("John", "Doe", "john@email.com"));
+    	System.out.println(s);
     	
     }
 }

@@ -9,5 +9,7 @@ public interface StudentDao {
 	public void deleteStudentById(int studentId);
 	
 	public void deleteAllStudents();
+	
+	public Student updateStudent(int studentId,Student student);
 
 }

@@ -6,5 +6,6 @@ public interface StudentService {
 	public Student createStudent(Student student);
 	public void deleteStudentById(int studentId);
 	public void deleteAllStudents();
+	public Student updateStudent(int studentId,Student student);
 
 }

@@ -32,4 +32,10 @@ public class StudentServiceImpl implements StudentService {
 		
 	}
 
+	@Override
+	public Student updateStudent(int studentId, Student student) {
+		// TODO Auto-generated method stub
+		return studentDao.updateStudent(studentId, student);
+	}
+
 }
