@@ -5,5 +5,9 @@ import org.example.demo.model.Student;
 public interface StudentDao {
 	
 	public Student createStudent(Student student);
+	
+	public void deleteStudentById(int studentId);
+	
+	public void deleteAllStudents();
 
 }

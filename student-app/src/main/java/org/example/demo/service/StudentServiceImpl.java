@@ -18,4 +18,18 @@ public class StudentServiceImpl implements StudentService {
 		return studentDao.createStudent(student);
 	}
 
+	@Override
+	public void deleteStudentById(int studentId) {
+		studentDao.deleteStudentById(studentId);
+		
+	}
+
+	@Override
+	public void deleteAllStudents() {
+		// TODO Auto-generated method stub
+		studentDao.deleteAllStudents();
+		System.out.println("deleted all item");
+		
+	}
+
 }
