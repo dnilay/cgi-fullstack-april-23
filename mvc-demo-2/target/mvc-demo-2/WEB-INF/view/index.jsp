@@ -8,7 +8,7 @@
 </head>
 <body>
 <form action="hello" method="post">
-<input type="text" name="t1"><br/>
+Enter Name: <input type="text" name="t1"><br/>
 <input type="submit" value="sayHello">
 
 </form>

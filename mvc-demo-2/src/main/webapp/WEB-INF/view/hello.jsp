@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-	out.println("Hello "+request.getAttribute("ATTR1"));
-%>
+Hello ${ATTR1}
 </body>
 </html>
