@@ -10,6 +10,8 @@
 <body>
 <h2>showing student details...</h2><hr><br/>
 First Name: ${s.firstName}<br/>
-Last Name: ${s.lastName }
+Last Name: ${s.lastName }<br/>
+Country:   ${s.country}<br/>
+Favorite Language:  ${s.favoriteLanguage}
 </body>
 </html>
