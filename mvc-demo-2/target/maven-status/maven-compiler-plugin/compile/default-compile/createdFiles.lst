@@ -1,1 +1,3 @@
 org\example\demo\controller\HomeController.class
+org\example\demo\model\Student.class
+org\example\demo\controller\StudentController.class
