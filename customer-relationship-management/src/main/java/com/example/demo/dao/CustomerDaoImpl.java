@@ -36,4 +36,13 @@ public class CustomerDaoImpl implements CustomerDao {
 		return customers;
 	}
 
+
+	@Override
+	public Customer createCustomer(Customer customer) {
+		// TODO Auto-generated method stub
+		Session session=sessionFactory.openSession();
+		session.save(customer);
+		return customer;
+	}
+
 }

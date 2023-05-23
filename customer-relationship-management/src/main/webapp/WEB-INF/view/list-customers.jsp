@@ -5,7 +5,6 @@
 <html>
 <head><%@ page isELIgnored="false" %>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>javaguides.net</title>
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
 <script src="<c:url value="/resources/js/jquery-3.7.0.min.js" />"></script>
@@ -14,8 +13,13 @@
 <body>
 	<div class="container">
 		<div class="col-md-offset-1 col-md-10">
-			<h2>CRM - Customer Relationship Manager</h2>
+			<h2><font color='red'>CRM - Customer Relationship Manager</font></h2>
 			<hr />
+<input type="button" value="Add Customer"
+				onclick="window.location.href='showForm'; return false;"
+				class="btn btn-primary" />
+				<br/><br/>
+			
 			<div class="panel panel-info">
 				<div class="panel-heading">
 					<div class="panel-title">Customer List</div>
