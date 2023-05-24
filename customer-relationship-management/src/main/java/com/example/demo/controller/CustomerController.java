@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,7 +45,7 @@ public class CustomerController {
 
 	@GetMapping("/updateForm")
 	public String showFormForUpdate(@RequestParam("customerId") int theId, Model theModel) {
-		Customer theCustomer = customerService.getCustomer(theId);
+	Optional<Customer> theCustomer = customerService.getCustomer(theId);
 		theModel.addAttribute("customer", theCustomer);
 		return "customer-form";
 	}

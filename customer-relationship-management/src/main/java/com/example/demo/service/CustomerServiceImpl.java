@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -21,25 +22,26 @@ public class CustomerServiceImpl implements CustomerService{
 	@Override
 	public List<Customer> getAllCustomers() {
 		// TODO Auto-generated method stub
-		return customerDao.getAllCustomers() ;
+		return customerDao.findAll() ;
 	}
 
 	@Override
 	public Customer createCustomer(Customer customer) {
 		// TODO Auto-generated method stub
-		return customerDao.createCustomer(customer);
+		return customerDao.save(customer);
 	}
 
 	@Override
-	public Customer getCustomer(int theId) {
+	public Optional<Customer> getCustomer(int theId) {
 		// TODO Auto-generated method stub
-		return customerDao.getCustomer(theId);
+		Optional<Customer> customer= customerDao.findById(theId);
+		return customer;
 	}
 
 	@Override
 	public void deleteCustomer(int theId) {
 		// TODO Auto-generated method stub
-		customerDao.deleteCustomer(theId);
+		customerDao.deleteById(theId);
 		
 	}
 

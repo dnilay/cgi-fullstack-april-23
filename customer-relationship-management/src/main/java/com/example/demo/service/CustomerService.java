@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.example.demo.model.Customer;
 
@@ -10,7 +11,7 @@ public List<Customer> getAllCustomers();
 	
 	public Customer createCustomer(Customer customer);
 	
-	public Customer getCustomer(int theId);
+	public Optional<Customer> getCustomer(int theId);
 
 	public void deleteCustomer(int theId);
 }
