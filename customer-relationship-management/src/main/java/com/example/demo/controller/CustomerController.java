@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.dao.CustomerDao;
 import com.example.demo.model.Customer;
@@ -39,6 +40,20 @@ public class CustomerController {
 	@PostMapping("/saveCustomer")
 	public String saveCustomer(@ModelAttribute("customer") Customer theCustomer) {
 		customerDao.createCustomer(theCustomer);	
+		return "redirect:/";
+	}
+	
+	@GetMapping("/updateForm")
+	public String showFormForUpdate(@RequestParam("customerId") int theId,
+									Model theModel) {
+		Customer theCustomer = customerDao.getCustomer(theId);	
+		theModel.addAttribute("customer", theCustomer);
+		return "customer-form";
+	}
+	
+	@GetMapping("/delete")
+	public String deleteCustomer(@RequestParam("customerId") int theId) {
+		customerDao.deleteCustomer(theId);
 		return "redirect:/";
 	}
 }

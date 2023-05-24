@@ -2,10 +2,10 @@ package com.example.demo.dao;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,34 +15,42 @@ import com.example.demo.model.Customer;
 @Repository
 @EnableTransactionManagement
 public class CustomerDaoImpl implements CustomerDao {
-	
-	private final SessionFactory sessionFactory;
-	
 
-	
-	public CustomerDaoImpl(SessionFactory sessionFactory) {
-		super();
-		this.sessionFactory = sessionFactory;
-	}
+	@PersistenceContext
+	private EntityManager entityManager;
 
-
+	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional
 	public List<Customer> getAllCustomers() {
-		Session session=sessionFactory.openSession();
-		Query query=session.createQuery("FROM Customer",Customer.class);
-		@SuppressWarnings("unchecked")
-		List<Customer> customers=query.getResultList();
-		return customers;
+
+		Query query = entityManager.createQuery("FROM Customer", Customer.class);
+
+		return query.getResultList();
 	}
 
+	@Override
+	@Transactional
+	public Customer createCustomer(Customer customer) {
+	
+		//save or update
+		 entityManager.merge(customer);
+		 
+		return customer ;
+	}
 
 	@Override
-	public Customer createCustomer(Customer customer) {
-		// TODO Auto-generated method stub
-		Session session=sessionFactory.openSession();
-		session.save(customer);
+	@Transactional
+	public Customer getCustomer(int theId) {
+		Customer customer= entityManager.find(Customer.class, theId);
 		return customer;
+	}
+
+	@Override
+	@Transactional
+	public void deleteCustomer(int theId) {
+		Customer customer= entityManager.find(Customer.class, theId);
+		entityManager.remove(customer);
 	}
 
 }
