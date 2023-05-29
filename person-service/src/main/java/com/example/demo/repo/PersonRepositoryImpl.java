@@ -1,11 +1,8 @@
 package com.example.demo.repo;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 import org.springframework.stereotype.Repository;
 
@@ -13,17 +10,17 @@ import com.example.demo.model.Person;
 
 @Repository
 public class PersonRepositoryImpl implements PersonRepository {
-	
-	private Map<Integer,Person> persons=null;
-	
+
+	private Map<Integer, Person> persons = null;
+
 	{
-		persons=new HashMap<Integer,Person>();
+		persons = new HashMap<Integer, Person>();
 	}
 
 	@Override
 	public Person createPerson(Person person) {
 		// TODO Auto-generated method stub
-		persons.put(person.getPersonId(),person);
+		persons.put(person.getPersonId(), person);
 		return person;
 	}
 
@@ -37,15 +34,29 @@ public class PersonRepositoryImpl implements PersonRepository {
 	@Override
 	public Person getPeresonByIdPerson(Integer personId) {
 		// TODO Auto-generated method stub
-		Person thePerson=persons.get(personId);
-		
+		Person thePerson = persons.get(personId);
+
 		System.out.println(thePerson);
-		if(thePerson==null )
-		{
+		if (thePerson == null) {
 			return null;
-		}
-		else
+		} else
 			return thePerson;
+
+	}
+
+	@Override
+	public Person updatePersonById(Integer personId, Person person) {
+		// TODO Auto-generated method stub
+		Person thePerson = persons.get(personId);
+
+		if (thePerson == null) {
+			return null;
+		} else
+			thePerson.setFirstName(person.getFirstName());
+		thePerson.setLastName(person.getLastName());
+		thePerson.setEmail(person.getEmail());
+		return thePerson;
+
 		
 	}
 

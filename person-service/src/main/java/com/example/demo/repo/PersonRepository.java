@@ -10,5 +10,7 @@ public interface PersonRepository {
 	public Collection<Person> getAllPersons();
 	
 	public Person getPeresonByIdPerson(Integer personId);
+	
+	public Person updatePersonById(Integer personId,Person person);
 
 }

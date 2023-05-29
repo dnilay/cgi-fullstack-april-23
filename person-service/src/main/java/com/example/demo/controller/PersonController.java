@@ -1,14 +1,13 @@
 package com.example.demo.controller;
 
 import java.util.Collection;
-import java.util.List;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,34 +27,38 @@ public class PersonController {
 	@PostMapping("/persons")
 	public ResponseEntity<Person> createPerson(@RequestBody Person person) {
 
-		Person p=personService.createPerson(person);
-	
-		
+		Person p = personService.createPerson(person);
+
 		return ResponseEntity.status(HttpStatus.CREATED).body(p);
-		
+
 	}
-	
-	
+
 	@GetMapping("/persons")
-	public ResponseEntity<Collection<Person>> getAllPersons()
-	{
+	public ResponseEntity<Collection<Person>> getAllPersons() {
 		return ResponseEntity.ok().body(personService.getAllPersons());
 	}
-	
+
 	@GetMapping("/persons/{personId}")
-	public ResponseEntity<?> getPersonById(@PathVariable("personId") Integer personid)
-	{
-		Person p=personService.getPeresonByIdPerson(personid);
+	public ResponseEntity<?> getPersonById(@PathVariable("personId") Integer personid) {
+		Person p = personService.getPeresonByIdPerson(personid);
 		System.out.println(p);
-		
-		if(p==null)
-		{
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("person with id: "+personid+" not found");
-		}
-		else
-		{
+
+		if (p == null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("person with id: " + personid + " not found");
+		} else {
 			return ResponseEntity.status(HttpStatus.FOUND).body(p);
 		}
+	}
+
+	@PutMapping("/persons/{personId}")
+	public ResponseEntity<?> updatePerson(@PathVariable("personId") Integer personId, @RequestBody Person person) {
+		Person p=personService.updatePersonById(personId, person);
+		if (p == null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("person with id: " + personId + " not found");
+		} else {
+			return ResponseEntity.status(HttpStatus.OK).body(p);
+		}
+
 	}
 
 }

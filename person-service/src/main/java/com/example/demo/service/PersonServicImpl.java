@@ -1,7 +1,6 @@
 package com.example.demo.service;
 
 import java.util.Collection;
-import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -12,9 +11,7 @@ import com.example.demo.repo.PersonRepository;
 public class PersonServicImpl implements PersonService {
 
 	private final PersonRepository personRepository;
-	
-	
-	
+
 	public PersonServicImpl(PersonRepository personRepository) {
 		super();
 		this.personRepository = personRepository;
@@ -35,9 +32,15 @@ public class PersonServicImpl implements PersonService {
 	@Override
 	public Person getPeresonByIdPerson(Integer personId) {
 		// TODO Auto-generated method stub
-		
+
 		return personRepository.getPeresonByIdPerson(personId);
-		
+
+	}
+
+	@Override
+	public Person updatePersonById(Integer personId, Person person) {
+		// TODO Auto-generated method stub
+		return personRepository.updatePersonById(personId, person);
 	}
 
 }
