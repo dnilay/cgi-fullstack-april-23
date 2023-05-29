@@ -12,5 +12,9 @@ public interface PersonRepository {
 	public Person getPeresonByIdPerson(Integer personId);
 	
 	public Person updatePersonById(Integer personId,Person person);
+	
+	public Person findByFirstName(String name);
+	
+	public Person updateByFirstName(String name);
 
 }

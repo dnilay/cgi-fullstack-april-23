@@ -60,4 +60,26 @@ public class PersonRepositoryImpl implements PersonRepository {
 		
 	}
 
+	@Override
+	public Person findByFirstName(String name) {
+		// TODO Auto-generated method stub
+		Person tempPerson=null;
+		Collection<Person> personCollection=persons.values();
+		for(Person p:personCollection)
+		{
+			if(p.getFirstName().equals(name))
+			{
+				tempPerson=p;
+				break;
+			}
+		}
+		return tempPerson;
+	}
+
+	@Override
+	public Person updateByFirstName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

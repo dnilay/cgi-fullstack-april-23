@@ -60,5 +60,19 @@ public class PersonController {
 		}
 
 	}
+	
+	@GetMapping("/persons/name/{firstName}")
+	public ResponseEntity<?> getPersonByFirstName(@PathVariable("firstName") String firstName)
+	{
+		Person p=personService.findByFirstName(firstName);
+		if(p==null)
+		{
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("person with the first name "+firstName+" not found");
+		}
+		else
+		{
+			return ResponseEntity.ok(p);
+		}
+	}
 
 }

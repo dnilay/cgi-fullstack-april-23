@@ -43,4 +43,16 @@ public class PersonServicImpl implements PersonService {
 		return personRepository.updatePersonById(personId, person);
 	}
 
+	@Override
+	public Person findByFirstName(String name) {
+		// TODO Auto-generated method stub
+		return personRepository.findByFirstName(name);
+	}
+
+	@Override
+	public Person updateByFirstName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
