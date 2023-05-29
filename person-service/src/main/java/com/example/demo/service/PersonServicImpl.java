@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -26,9 +27,17 @@ public class PersonServicImpl implements PersonService {
 	}
 
 	@Override
-	public List<Person> getAllPersons() {
+	public Collection<Person> getAllPersons() {
 		// TODO Auto-generated method stub
 		return personRepository.getAllPersons();
+	}
+
+	@Override
+	public Person getPeresonByIdPerson(Integer personId) {
+		// TODO Auto-generated method stub
+		
+		return personRepository.getPeresonByIdPerson(personId);
+		
 	}
 
 }
