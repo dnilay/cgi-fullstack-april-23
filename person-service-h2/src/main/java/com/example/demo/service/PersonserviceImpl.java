@@ -23,4 +23,14 @@ public class PersonserviceImpl implements PersonService {
 		return personRepository.findAll();
 	}
 
+	@Override
+	public Person createPerson(Person person) {
+		// TODO Auto-generated method stub
+		
+		return personRepository.save(person);
+		
+		
+		return null;
+	}
+
 }
