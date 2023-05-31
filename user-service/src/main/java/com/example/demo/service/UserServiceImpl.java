@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.modelmapper.ModelMapper;
@@ -33,6 +34,12 @@ public class UserServiceImpl implements UserService {
 		log.debug("done updating data");
 		UserResponseModel responseModel = modelMapper.map(userEntity, UserResponseModel.class);
 		return responseModel;
+	}
+
+	@Override
+	public List<UserEntity> getAllUsers() {
+		// TODO Auto-generated method stub
+		return userRepository.findAll();
 	}
 
 }
