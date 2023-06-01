@@ -11,5 +11,13 @@ public interface UserService {
 	public UserResponseModel createUser(UserDto userDto);
 
 	public List<UserEntity> getAllUsers();
+	
+	public UserResponseModel getuserById(int id);
+	
+	public void deleteUserById(int id);
+	
+	public UserResponseModel updateUserById(int id);
+	
+	public void deleteAllUsers();
 
 }

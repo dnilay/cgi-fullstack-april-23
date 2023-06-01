@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.modelmapper.ModelMapper;
@@ -40,6 +41,41 @@ public class UserServiceImpl implements UserService {
 	public List<UserEntity> getAllUsers() {
 		// TODO Auto-generated method stub
 		return userRepository.findAll();
+	}
+
+	@Override
+	public UserResponseModel getuserById(int id) {
+		// TODO Auto-generated method stub
+		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
+		Optional<UserEntity> e=userRepository.findById(id);
+		
+		if(!e.isPresent())
+		{
+			return null;
+		}
+		else
+		{
+			return modelMapper.map(e, UserResponseModel.class);
+		}
+		
+	}
+
+	@Override
+	public void deleteUserById(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public UserResponseModel updateUserById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteAllUsers() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

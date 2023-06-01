@@ -7,7 +7,9 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.dto.UserDto;
 import com.example.demo.entity.UserEntity;
 import com.example.demo.service.UserService;
+import com.example.demo.ui.ErrorModel;
 import com.example.demo.ui.UserRequestModel;
 import com.example.demo.ui.UserResponseModel;
 
@@ -29,8 +32,15 @@ public class UserController {
 	
 	private final ModelMapper modelMapper;
 	private final UserService userService;
+@ExceptionHandler(value = NumberFormatException.class)	
+public ResponseEntity<ErrorModel> handleException(NumberFormatException e)
+{
+	ErrorModel errorModel=new ErrorModel(HttpStatus.BAD_REQUEST.value(), e.getMessage(), System.currentTimeMillis());
 	
-
+	return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorModel);
+}
+	
+	
 	@PostMapping
 	public ResponseEntity<UserResponseModel> createUser(@RequestBody UserRequestModel requestModel)
 	{
@@ -71,6 +81,21 @@ public class UserController {
 		
 	}
 	
+	@GetMapping("/{id}")
+	public ResponseEntity<?> findUserById(@PathVariable("id") int id) throws NumberFormatException
+	{
+		
+		UserResponseModel model=userService.getuserById(id);
+		System.out.println(model);
+		if(model==null)
+		{
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("user with id: "+id+" not found");
+		}
+		else
+		{
+			return ResponseEntity.ok(model);
+		}
+	}
 	
 
 }
