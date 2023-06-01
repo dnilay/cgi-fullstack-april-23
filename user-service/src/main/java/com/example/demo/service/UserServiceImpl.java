@@ -78,4 +78,11 @@ public class UserServiceImpl implements UserService {
 		
 	}
 
+	@Override
+	public UserResponseModel findByUserId(String userId) {
+		UserEntity entity=userRepository.findByUserId(userId);
+		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
+		return modelMapper.map(entity, UserResponseModel.class);
+	}
+
 }

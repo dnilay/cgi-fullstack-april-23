@@ -95,5 +95,10 @@ public class UserController {
 			return ResponseEntity.ok(model);
 		}
 	}
+	@GetMapping("/findByUserId/{userId}")
+	public ResponseEntity<?> getUserByUserId(@PathVariable("userId") String userId)
+	{
+		return ResponseEntity.ok(userService.findByUserId(userId));
+	}
 
 }

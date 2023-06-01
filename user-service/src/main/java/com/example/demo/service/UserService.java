@@ -19,5 +19,7 @@ public interface UserService {
 	public UserResponseModel updateUserById(int id);
 	
 	public void deleteAllUsers();
+	
+	public UserResponseModel findByUserId(String userId);
 
 }
