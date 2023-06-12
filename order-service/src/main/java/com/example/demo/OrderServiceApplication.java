@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableDiscoveryClient
 
 @RestController
+
 public class OrderServiceApplication {
 
 	public static void main(String[] args) {
